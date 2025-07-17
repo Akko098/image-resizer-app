@@ -55,7 +55,10 @@ function App() {
     formData.append('widths', JSON.stringify(filledWidths));
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/resize`, formData, {
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const requestUrl = `${apiUrl.endsWith('/') ? apiUrl.slice(0, -1) : apiUrl}/api/resize`;
+
+      const response = await axios.post(requestUrl, formData, {
         responseType: 'blob',
       });
 
