@@ -34,7 +34,12 @@ app.post('/api/resize', upload.array('images'), async (req, res) => {
           .resize({ width: parseInt(width, 10) })
           .toBuffer();
         
-        zip.file(`${originalName}-${width}.png`, resizedImageBuffer);
+        const resizedImageBuffer = await sharp(imageFile.buffer)
+          .resize({ width: parseInt(width, 10) })
+          .jpeg({ quality: 80 })
+          .toBuffer();
+        
+        zip.file(`${originalName}-${width}.jpg`, resizedImageBuffer);
       }
     }
 
