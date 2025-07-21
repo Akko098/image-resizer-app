@@ -100,7 +100,7 @@ function App() {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="image" className="form-label">1. Select Images</label>
-              <input type="file" className="form-control" id="image" onChange={handleImageChange} accept="image/png, image/jpeg" multiple disabled={loading} />
+              <input type="file" className="form-control" id="image" onChange={handleImageChange} accept="image/png, image/jpeg, image/tiff" multiple disabled={loading} />
               {fileCount > 0 && <div className="form-text">{fileCount} files selected.</div>}
             </div>
 
