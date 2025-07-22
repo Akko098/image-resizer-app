@@ -8,7 +8,9 @@ const JSZip = require('jszip');
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://snazzy-eclair-8c7c63.netlify.app'
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
